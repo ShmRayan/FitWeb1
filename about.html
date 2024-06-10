@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER  -->
+    <header class="bg-white d-flex justify-content-between align-items-center py-3 px-4 ">
+        
+        <img src="images/logo.png" alt="Logo" class="logo">
+        <h1 class="ml-3 fitray-text"> FITRAY</h1>
+        
+        <div class="container mr-0">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Acceuil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="service.html">Services Offerts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">Contactez-Nous</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="reserver.html">Réservation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="progress.html">Progress</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">À propos de Nous</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-2">
+                        <a href="login.html"><button class="btn btn-primary mr-2 custom-btn">Login</button></a>
+                        <a href="register.html"><button class="btn btn-success custom-btn">Register</button></a>
+                    </div>
+
+                </div>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- SECTION DE CONTACTEZ-NOUS -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Contactez-nous</h2>
+                <p>Téléphone : +1 613 888 8888</p>
+                <p>Email : contact@FitRay.com</p>
+                <p>Adresse : 199 Fitness Street, K1N O7O, Ottawa, ON.</p>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3 text-center">
+                <h3>Votre avis nous intéresse</h3>
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5"> 1 ☆</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4">2 ☆</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3">3 ☆</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2">4 ☆</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1">5 ☆</label>
+                </div>
+                <form action="#" method="post" class="mt-3" onsubmit="showAlert(); return false;">
+                    <div class="form-group">
+                        <label for="name">Nom :</label>
+                        <input type="text" class="form-control" id="name" placeholder="Votre Nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse Email :</label>
+                        <input type="email" class="form-control" id="email" placeholder="Votre Adresse Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Commentaire :</label>
+                        <textarea class="form-control" id="comment" rows="3" placeholder="Entrez votre commentaire ici" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <p>Vous n'avez pas de compte ? <a href="register.html">Inscrivez-vous ici</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <ul class="list-unstyled d-flex justify-content-center">
+            <li class="mx-3"><a href="service.html" class="text-white">Services Offerts</a></li>
+            <li class="mx-3"><a href="about.html" class="text-white">Contactez-Nous</a></li>
+            <li class="mx-3"><a href="reserver.html" class="text-white">Réservation</a></li>
+            <li class="mx-3"><a href="progress.html" class="text-white">Progress</a></li>
+            <li class="mx-3"><a href="about.html" class="text-white">À propos de Nous</a></li>
+        </ul>
+        <p>&copy; 2024 Mon Site Web. Tous droits réservés.</p>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Votre JavaScript -->
+    <script src="js/scripts.js"></script>
+
+    <script>
+        function showAlert() {
+            alert("Merci pour votre avis !");
+        }
+    </script>
+
+</body>
+
+</html>

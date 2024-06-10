@@ -1,0 +1,111 @@
+:root {
+    --primary-color: #ff6600; /* Couleur orange */
+    --secondary-color: #000000; /* Couleur noire */
+    --white-color: #ffffff; /* Couleur blanche */
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: var(--white-color);
+    overflow-x: auto;
+}
+
+.logo {
+    width: 150px;
+}
+
+.nav-link {
+    color: var(--secondary-color);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    width:200px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: #CCCCCC; /* Couleur de fond grise au survol */
+    border-color: #CCCCCC; /* Couleur de bordure grise au survol */
+}
+
+.btn-success {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    
+}
+
+.btn-success:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    background-color: #CCCCCC; /* Couleur de fond grise au survol */
+    border-color: #CCCCCC; /* Couleur de bordure grise au survol */
+}
+
+.search-form input[type="text"] {
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+.search-form input[type="text"]::placeholder {
+    color: var(--secondary-color);
+}
+
+.search-form button {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.search-form button:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+
+h3{
+    font-size: 3rem;
+}
+
+p{
+    font-size: 20px;
+}
+
+.buttons-container {
+    margin-right: 10px; /* Ajustez cette valeur selon votre préférence */
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px; /* Ajustez cette valeur selon votre préférence */
+}
+
+.custom-btn{
+    width: 150px;
+}
+
+
+.fitray-text {
+    font-family: Arial, sans-serif; /* Utilisation de la police Arial */
+    font-size: 50px; /* Taille de la police */
+    font-weight: bold; /* Texte en gras */
+    text-transform: uppercase; /* Convertit le texte en majuscules */
+    letter-spacing: 2px; /* Espacement entre les lettres */
+    color: black; /* Couleur du texte */
+    /* Ajoutez d'autres styles au besoin */
+}
+
+
+.gg{
+    width:50px;
+}

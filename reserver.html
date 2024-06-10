@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réserver</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Inclure votre propre fichier CSS si nécessaire -->
+    <style>
+        /* Ajoutez vos styles personnalisés ici */
+        #cost {
+            color: black;
+        }
+
+        .reservation-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .reservation-form {
+            width: 45%;
+        }
+
+        .friends-form {
+            width: 45%;
+        }
+        #costSolo, #costFriends {
+        color: black;
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER  -->
+    <header class="bg-white d-flex justify-content-between align-items-center py-3 px-4">
+        
+        <img src="images/logo.png" alt="Logo" class="logo">
+        <h1 class="ml-3 fitray-text"> FITRAY</h1>
+        
+        <div class="container mr-0">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Acceuil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="service.html">Services Offerts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">Contactez-Nous</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="reserver.html">Réservation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="progress.html">Progress</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">À propos de Nous</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-2">
+                        <a href="login.html"><button class="btn btn-primary mr-2 custom-btn">Login</button></a>
+                        <a href="register.html"><button class="btn btn-success custom-btn">Register</button></a>
+                    </div>
+
+                </div>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Contenu de la page -->
+    <div class="container mt-5">
+        <h1 class="text-center">Réservation</h1>
+        <div class="reservation-section">
+            <div class="reservation-form">
+                <h2>Réserver seul</h2>
+                <div class="card p-4">
+                    <form onsubmit="return validateSoloForm()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="nomSolo" placeholder="Nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="prenomSolo" placeholder="Prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="emailSolo" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="serviceSolo" onchange="selectExpertSolo()" required>
+                                <option value="">Sélectionner le service</option>
+                                <option value="entrainement">Entraînements Personnalisés</option>
+                                <option value="support">Support Coachs Certifiés</option>
+                                <option value="nutrition">Conseils Nutritionnels Experts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="expertSolo" required>
+                                <option value="">Sélectionner l'expert</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="dateSolo" placeholder="Date de réservation" min="<?= date('Y-m-d') ?>" required>
+                        </div>
+                        <div class="form-group" id="costSolo"></div> 
+                        <button type="submit" class="btn btn-primary btn-block" onclick="redirectToConfirmation()"> Réserver </button>
+
+                    </form>
+                </div>
+            </div>
+            <div class="friends-form">
+                <h2>Réserver avec des amis</h2>
+                <div class="card p-4">
+                    <form onsubmit="return validateFriendsForm()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="nomFriends" placeholder="Nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="prenomFriends" placeholder="Prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="emailFriends" placeholder="Votre Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="emailAmi" placeholder="Email de l'ami" required>
+                        </div>
+                        <button type="button" class="btn btn-success mb-3" onclick="addFriend()">Ajouter un ami</button>
+                        <div id="friendsList"></div>
+                        <div class="form-group">
+                            <select class="form-control" id="serviceFriends" onchange="selectExpertFriends()" required>
+                                <option value="">Sélectionner le service</option>
+                                <option value="entrainement">Entraînements Personnalisés</option>
+                                <option value="support">Support Coachs Certifiés</option>
+                                <option value="nutrition">Conseils Nutritionnels Experts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="expertFriends" required>
+                                <option value="">Sélectionner l'expert</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" class="form
+                            Contrôle" id="dateFriends" placeholder="Date de réservation" min="<?= date('Y-m-d') ?>" required>
+                        </div>
+                        <div class="form-group" id="costFriends"></div>
+                        <button type="submit" class="btn btn-primary btn-block" onclick="redirectToConfirmation()">Réserver</button>
+
+                        </form>
+                        </div>
+                        </div>
+                        </div>
+                        </div><!-- FOOTER -->
+                        <footer class="bg-dark text-white text-center py-3 mt-5">
+                            <ul class="list-unstyled d-flex justify-content-center">
+                                <li class="mx-3"><a href="service.html" class="text-white">Services Offerts</a></li>
+                                <li class="mx-3"><a href="about.html" class="text-white">Contactez-Nous</a></li>
+                                <li class="mx-3"><a href="reserver.html" class="text-white">Réservation</a></li>
+                                <li class="mx-3"><a href="progress.html" class="text-white">Progress</a></li>
+                                <li class="mx-3"><a href="about.html" class="text-white">À propos de Nous</a></li>
+                            </ul>
+                            <p>&copy; 2024 Mon Site Web. Tous droits réservés.</p>
+                        </footer>
+                        
+                        <!-- Scripts JavaScript -->
+                        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                        <script>
+                            function selectExpertSolo() {
+                                var service = document.getElementById("serviceSolo").value;
+                                var expertSelect = document.getElementById("expertSolo");
+                                expertSelect.innerHTML = "";
+                        
+                                if (service === "entrainement") {
+                                    addOption(expertSelect, "Lucie Martin");
+                                    addOption(expertSelect, "Maxime Dubois");
+                                    addOption(expertSelect, "Sophie Leroux");
+                                    document.getElementById("costSolo").innerHTML = "Coût : 10$";
+                                } else if (service === "support") {
+                                    addOption(expertSelect, "Marie Dupont");
+                                    addOption(expertSelect, "Antoine Rousseau");
+                                    addOption(expertSelect, "Laura Garcia");
+                                    document.getElementById("costSolo").innerHTML = "Coût : 15$";
+                                } else if (service === "nutrition") {
+                                    addOption(expertSelect, "Émilie Lefebvre");
+                                    addOption(expertSelect, "Pierre Lambert");
+                                    addOption(expertSelect, "Amélie Dubois");
+                                    document.getElementById("costSolo").innerHTML = "Coût : 20$";
+                                }
+                            }
+                        
+                            function selectExpertFriends() {
+                                var service = document.getElementById("serviceFriends").value;
+                                var expertSelect = document.getElementById("expertFriends");
+                                expertSelect.innerHTML = "";
+                        
+                                if (service === "entrainement") {
+                                    addOption(expertSelect, "Lucie Martin");
+                                    addOption(expertSelect, "Maxime Dubois");
+                                    addOption(expertSelect, "Sophie Leroux");
+                                    document.getElementById("costFriends").innerHTML = "Coût : 10$";
+                                } else if (service === "support") {
+                                    addOption(expertSelect, "Marie Dupont");
+                                    addOption(expertSelect, "Antoine Rousseau");
+                                    addOption(expertSelect, "Laura Garcia");
+                                    document.getElementById("costFriends").innerHTML = "Coût : 15$";
+                                } else if (service === "nutrition") {
+                                    addOption(expertSelect, "Émilie Lefebvre");
+                                    addOption(expertSelect, "Pierre Lambert");
+                                    addOption(expertSelect, "Amélie Dubois");
+                                    document.getElementById("costFriends").innerHTML = "Coût : 20$";
+                                }
+                            }
+                        
+                            function addOption(select, text) {
+                                var option = document.createElement("option");
+                                option.text = text;
+                                select.add(option);
+                            }
+                        
+                            function validateSoloForm() {
+                                var nom = document.getElementById("nomSolo").value;
+                                var prenom = document.getElementById("prenomSolo").value;
+                                var email = document.getElementById("emailSolo").value;
+                                var service = document.getElementById("serviceSolo").value;
+                                var expert = document.getElementById("expertSolo").value;
+                                var date = document.getElementById("dateSolo").value;
+                        
+                                if (nom === "" || prenom === "" || email === "" || service === "" || expert === "" || date === "") {
+                                    alert("Veuillez remplir tous les champs du formulaire.");
+                                    return false;
+                                }
+                        
+                                alert("Vous avez réservé votre rendez-vous seul.");
+                                return true;
+                            }
+                        
+                            var friendCounter = 1;
+                        
+                            function addFriend() {
+                                var email = prompt("Entrez l'email de votre ami " + friendCounter + " (ou annulez pour terminer)");
+                        
+                                if (email !== null && email !== "") {
+                                    var friendsList = document.getElementById("friendsList");
+                                    var emailInput = document.createElement("input");
+                                    emailInput.type = "text";
+                                    emailInput.className = "form-control mb-2";
+                                    emailInput.value = email;
+                                    emailInput.readOnly = true;
+                                    friendsList.appendChild
+                                    (emailInput);
+
+friendCounter++;
+}
+}
+
+function validateFriendsForm() {
+var nom = document.getElementById("nomFriends").value;
+var prenom = document.getElementById("prenomFriends").value;
+var email = document.getElementById("emailFriends").value;
+var service = document.getElementById("serviceFriends").value;
+var expert = document.getElementById("expertFriends").value;
+var date = document.getElementById("dateFriends").value;
+
+if (nom === "" || prenom === "" || email === "" || service === "" || expert === "" || date === "") {
+alert("Veuillez remplir tous les champs du formulaire.");
+return false;
+}
+
+alert("Vous avez réservé votre rendez-vous avec des amis.");
+return true;
+}
+function redirectToConfirmation() {
+        window.location.href = "confirmation.html";
+    }
+</script>
+</body>
+
+</html>
+        
