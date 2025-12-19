@@ -7,7 +7,7 @@ import { Lock, Mail, Loader2, CheckCircle2 } from 'lucide-react';
 const ConfettiPiece = ({ delay }) => (
   <motion.div
     initial={{ scale: 0, opacity: 1, x: 0, y: 0 }}
-    animate={{ scale: [0, 1, 0.5], opacity: [1, 1, 0], x: (Math.random() - 0.5) * 300, y: (Math.random() - 0.5) * 300, rotate: Math.random() * 360 }}
+    animate={{ scale: [0, 1, 0.5], opacity: [1, 1, 0], x: (Math.random() - 0.5) * 400, y: (Math.random() - 0.5) * 400, rotate: Math.random() * 360 }}
     transition={{ duration: 0.8, delay, ease: "easeOut" }}
     className="position-absolute"
     style={{ width: '8px', height: '8px', backgroundColor: ['#2563eb', '#06b6d4', '#fbbf24'][Math.floor(Math.random() * 3)], borderRadius: '2px', zIndex: 10 }}
@@ -28,23 +28,25 @@ export default function Login() {
     e.preventDefault();
     setError('');
     setIsLoading(true);
+    setTimeout(() => {
+      if (email === "rayan@uottawa.ca" && password === "123") {
+          
+          const userData = { name: "Rayan", email: email };
+          localStorage.setItem('user', JSON.stringify(userData));
+          localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...');
 
-    try {
-      setTimeout(() => {
-        if (email && password) {
-            setIsLoading(false);
-            setIsSuccess(true);
-            setShowConfetti(true);
-            setTimeout(() => navigate('/'), 2000);
-        } else {
-            setIsLoading(false);
-            setError("Please fill in all fields.");
-        }
-      }, 1500);
-    } catch (err) {
-      setIsLoading(false);
-      setError("Server connection error.");
-    }
+          setIsLoading(false);
+          setIsSuccess(true);
+          setShowConfetti(true);
+          setTimeout(() => {
+            navigate('/');
+            window.location.reload(); 
+          }, 2000);
+      } else {
+          setIsLoading(false);
+          setError("Invalid email or password. Use rayan@uottawa.ca / 123");
+      }
+    }, 1500);
   };
 
   return (
@@ -63,7 +65,7 @@ export default function Login() {
 
               <Card className="border-0 shadow-lg p-4 p-md-5" style={{ borderRadius: '2.5rem', backgroundColor: 'white' }}>
                 <Card.Body className="p-0">
-                  {error && <Alert variant="danger" className="rounded-3 border-0 small fw-bold">{error}</Alert>}
+                  {error && <Alert variant="danger" className="rounded-4 border-0 small fw-bold text-center">{error}</Alert>}
 
                   <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-4">
@@ -110,8 +112,15 @@ export default function Login() {
                         }`}
                         style={{ height: '60px', fontSize: '1.1rem' }}
                       >
-                        {isLoading ? <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}><Loader2/></motion.div> : 
-                         isSuccess ? <><CheckCircle2/> ACCESS GRANTED</> : "SIGN IN"}
+                        {isLoading ? (
+                           <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
+                             <Loader2 size={24}/>
+                           </motion.div>
+                        ) : isSuccess ? (
+                           <><CheckCircle2 size={24}/> ACCESS GRANTED</>
+                        ) : (
+                           "SIGN IN"
+                        )}
                       </motion.button>
                     </div>
                   </Form>
