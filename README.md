@@ -1,29 +1,26 @@
-# FitRay — Modern Fitness Platform
+# VORA - Private Curated Archive
 
-A high-end, interactive fitness platform designed to deliver a premium and motivating workout experience.  
-Built with React, Bootstrap, and Framer Motion.
+A high-end, experimental e-commerce experience showcasing rare artifacts through a lens of minimal luxury. Built with **React**, **Tailwind v4**, and **Framer Motion**.
 
-[✨ Live Experience](https://shmrayan.github.io/FitRay/)
+[✨ Live Experience](https://shmrayan.github.io/Vora/)
 
-💎 **The Vision**
-**FitRay is a modern digital fitness platform built as a guided training environment rather than a simple booking app.**
+## 💎 The Vision
+**VORA is an ultra-premium e-commerce boutique disguised as a futuristic design laboratory.**
 
-It focuses on clarity, structure, and flow — combining clean design with smooth, intentional interactions. Every action is designed to feel responsive, motivating, and effortless, turning fitness planning into a focused and engaging experience.
+It aims to redefine web elegance by merging mechanical precision with aesthetic void. It serves not just as a store, but as a digital gallery where every interaction is designed to feel weightless, exclusive, and cinematic.
 
-🚀 **Technical Excellence**
+## 🚀 Technical Excellence
+- **Immersive Checkout:** A custom-built payment flow with organic shake-validation and simulated processing steps.
+- **Living Background:** A sophisticated background layer featuring subtle dot-grids and moving "auras" to create depth.
+- **Advanced Animations:** Complex scroll-triggered effects and physics-based interactions using `Framer Motion`.
+- **Interactive Mechanics:** Real-time clipboard interactions, encrypted email feedback, and toast notifications.
+- **Modern Stack:** Tailwind CSS v4 (the future of CSS) and Vite for instant performance.
 
-- **Immersive Authentication:** A simulated JWT-based login flow to replicate real-world user access and session handling.  
-- **Dynamic Programs:** Fitness services and training plans loaded via a local REST-style JSON API.  
-- **Smart Booking Engine:** Interactive session booking with expert selection and real-time UI feedback.  
-- **Advanced Animations:** Fluid transitions and micro-interactions powered by Framer Motion.  
-- **Production-Ready Routing:** HashRouter setup for seamless GitHub Pages deployment.
-
-🛠️ **Tech Stack**
-
-- **Frontend:** ReactJS, React-Bootstrap, Lucide Icons.  
-- **Styling:** Bootstrap with custom UI refinements.  
-- **Motion:** Framer Motion (AnimatePresence, layout transitions).  
-- **Routing:** React Router (HashRouter).
+## 🛠️ Tech Stack
+- **Frontend:** ReactJS, Lucide Icons.
+- **Styling:** Tailwind CSS, custom glassmorphism shaders.
+- **Motion:** Framer Motion (useScroll, useTransform, AnimatePresence).
+- **FX:** Canvas-Confetti for successful conversion feedback.
 
 ---
 *Created by Rayan Saadani Hassani*
