@@ -2,7 +2,7 @@
   "name": "fitcoach",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://ShmRayan.github.io/FitRay",
+  "homepage": "https://shmrayan.github.io/FitRay",
   "type": "module",
   "scripts": {
     "dev": "vite",
