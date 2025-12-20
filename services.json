@@ -1,0 +1,29 @@
+[
+  {
+    "id": "weight_loss",
+    "title": "Weight Loss",
+    "level": "BEGINNER",
+    "price": "Free",
+    "duration": "8 weeks",
+    "features": ["Full Program", "Nutrition Plan", "24/7 Support"],
+    "color": "primary"
+  },
+  {
+    "id": "muscle_gain",
+    "title": "Muscle Gain",
+    "level": "INTERMEDIATE",
+    "price": "$10/mo",
+    "duration": "12 weeks",
+    "features": ["Hypertrophy Focus", "Macro Tracking", "Form Check"],
+    "color": "cyan"
+  },
+  {
+    "id": "hybrid",
+    "title": "Hybrid Athlete",
+    "level": "ADVANCED",
+    "price": "$20/mo",
+    "duration": "10 weeks",
+    "features": ["Endurance + Strength", "Recovery Plan", "Elite Coaching"],
+    "color": "dark"
+  }
+]
