@@ -23,4 +23,5 @@ It focuses on clarity, structure, and flow — combining clean design with smoot
 - **Motion:** Framer Motion (AnimatePresence, layout transitions)  
 - **Routing:** React Router (HashRouter)
 
+---
 *Created by Rayan Saadani Hassani*
