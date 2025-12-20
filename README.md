@@ -3,19 +3,12 @@
 A high-end, interactive fitness platform designed to deliver a premium and motivating workout experience.  
 Built with React, Bootstrap, and Framer Motion.
 
----
-
-✨ **Live Experience**
-
----
+[✨ Live Experience](https://shmrayan.github.io/FitRay/)
 
 💎 **The Vision**
-
-FitRay is a modern digital fitness platform built as a guided training environment rather than a simple booking app.
+**FitRay is a modern digital fitness platform built as a guided training environment rather than a simple booking app.**
 
 It focuses on clarity, structure, and flow — combining clean design with smooth, intentional interactions. Every action is designed to feel responsive, motivating, and effortless, turning fitness planning into a focused and engaging experience.
-
----
 
 🚀 **Technical Excellence**
 
@@ -25,8 +18,6 @@ It focuses on clarity, structure, and flow — combining clean design with smoot
 - **Advanced Animations:** Fluid transitions and micro-interactions powered by Framer Motion.  
 - **Production-Ready Routing:** HashRouter setup for seamless GitHub Pages deployment.
 
----
-
 🛠️ **Tech Stack**
 
 - **Frontend:** ReactJS, React-Bootstrap, Lucide Icons.  
@@ -35,5 +26,4 @@ It focuses on clarity, structure, and flow — combining clean design with smoot
 - **Routing:** React Router (HashRouter).
 
 ---
-
-Created by **Rayan Saadani Hassani**
+*Created by Rayan Saadani Hassani*
