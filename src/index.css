@@ -157,3 +157,27 @@ body, html {
   padding: 1.5rem;
   border-top: 1px solid #e5e7eb;
 }
+
+.bg-cyan {
+  background-color: #06b6d4 !important;
+}
+
+.text-cyan {
+  color: #06b6d4 !important;
+}
+
+.btn-cyan {
+  background-color: #06b6d4 !important;
+  border-color: #06b6d4 !important;
+  color: white !important;
+}
+
+.btn-cyan:hover {
+  background-color: #0891b2 !important;
+  border-color: #0891b2 !important;
+  color: white !important;
+}
+
+.bg-cyan.bg-opacity-10 {
+  background-color: rgba(6, 182, 212, 0.1) !important;
+}

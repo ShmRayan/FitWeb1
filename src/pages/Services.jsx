@@ -5,20 +5,21 @@ import { CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Services() {
-  const [plans, setPlans] = useState([]);
+  const [plans, setPlans] = useState([]); 
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const dummyData = [
-        { id: "weight_loss", name: "Weight Loss", duration: "8 weeks", level: "Beginner", price: "Free", color: "primary", features: ["Full Program", "Nutrition Plan", "24/7 Support"] },
-        { id: "muscle_gain", name: "Muscle Gain", duration: "12 weeks", level: "Intermediate", price: "$10/mo", color: "info", features: ["Hypertrophy Focus", "Macro Tracking", "Form Check"] },
-        { id: "hybrid", name: "Hybrid Athlete", duration: "10 weeks", level: "Advanced", price: "$20/mo", color: "dark", features: ["Endurance + Strength", "Recovery Plan", "Elite Coaching"] }
-    ];
-    setTimeout(() => {
-        setPlans(dummyData);
+    fetch('./services.json') 
+      .then(res => res.json())
+      .then(data => {
+        setPlans(data);     
+        setLoading(false);  
+      })
+      .catch(err => {
+        console.error("Erreur chargement services:", err);
         setLoading(false);
-    }, 500);
+      });
   }, []);
 
   const handleChoosePlan = (planId) => {
@@ -50,8 +51,10 @@ export default function Services() {
                                 <div className={`bg-${plan.color} py-2`}></div>
                                 <Card.Body className="d-flex flex-column p-5">
                                     <div className="text-center mb-4">
-                                        <Badge bg={`${plan.color} bg-opacity-10`} text={plan.color === 'dark' ? 'dark' : plan.color} className="mb-3 px-3 py-2 rounded-pill text-uppercase">{plan.level}</Badge>
-                                        <Card.Title className="h2 fw-bold text-dark">{plan.name}</Card.Title>
+                                       <Badge className={`bg-${plan.color} bg-opacity-10 text-${plan.color === 'dark' ? 'dark' : plan.color} mb-3 px-3 py-2 rounded-pill text-uppercase`} style={{ border: 'none' }}>{plan.level}</Badge>
+                                        
+                                        <Card.Title className="h2 fw-bold text-dark">{plan.title}</Card.Title>
+                                        
                                         <h3 className="text-secondary fw-normal">{plan.price}</h3>
                                         <small className="text-muted">{plan.duration}</small>
                                     </div>
